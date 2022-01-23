@@ -1,0 +1,40 @@
+.start-screen {
+    background-color: #404040;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+        height: 100vh;
+    }
+    .label-div {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        bottom: 50px;
+        .start-game {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            span {
+                font-size: 35px;
+                font-weight: bold;
+                color: red;
+            }
+        }
+        img {
+            width: 50vh;
+            height: auto;
+            opacity: 0.3;
+            &:hover {
+                filter: brightness(1.5);
+                cursor: pointer;
+            }
+        }
+    }
+}
