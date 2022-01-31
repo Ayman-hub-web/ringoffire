@@ -26,10 +26,15 @@ export class GameComponent implements OnInit {
   this.newGame();
   this.router.params.subscribe((params)=>{
     console.log(params);
+    this.firestore.collection('games').doc(params['id']).valueChanges().subscribe((game:any)=>{
+      console.log('Game updated:',game);
+      this.game.currentPlayer = game.currentPlayer;
+      this.game.playedCards = game.playedCards;
+      this.game.player = game.player;
+      this.game.stack = game.stack;
+    });
   });
-  this.firestore.collection('games').valueChanges().subscribe((game)=>{
-    console.log('Game updated:',game);
-  });
+  
   }
   takeCard(){
     if(!this.pickCardAnimation){
@@ -48,8 +53,8 @@ export class GameComponent implements OnInit {
   }
   newGame(){
     this.game = new Game();
-    this.firestore.collection('games').add(this.game.toJSON());
-    console.log(this.game);
+    // this.firestore.collection('games').add(this.game.toJSON());
+    // console.log(this.game);
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
