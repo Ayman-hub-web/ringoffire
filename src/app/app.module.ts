@@ -18,6 +18,9 @@ import { DialogAddPlayerComponent } from './dialog-add-player/dialog-add-player.
 import { MatRippleModule } from '@angular/material/core';
 import { GameInfoComponent } from './game-info/game-info.component';
 import {MatCardModule} from '@angular/material/card';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,10 +33,11 @@ import {MatCardModule} from '@angular/material/card';
     
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
@@ -41,9 +45,7 @@ import {MatCardModule} from '@angular/material/card';
     MatRippleModule,
     FormsModule,
     MatCardModule,
-    MatInputModule
-
-    
+    MatInputModule   
     
   ],
   providers: [],
