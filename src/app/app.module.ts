@@ -21,6 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { CommonModule } from '@angular/common';
+import { PlayerMobileComponent } from './player-mobile/player-mobile.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CommonModule } from '@angular/common';
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
+    PlayerMobileComponent,
     
   ],
   imports: [
